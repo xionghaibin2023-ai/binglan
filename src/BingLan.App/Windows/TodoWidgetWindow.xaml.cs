@@ -472,7 +472,7 @@ public partial class TodoWidgetWindow : WidgetWindowBase
 
     // ------------------------------------------------------------------
     // Dwell-lift drag reordering inside the day peek popup.
-    // State machine: Idle → HoverArmed(cursor dwells over a row for 500 ms
+    // State machine: Idle → HoverArmed(cursor dwells over a row for 300 ms
     // with no button down; row lifts) → Dragging(left button pressed on the
     // armed row; follows the cursor, other rows shift live) → settle on
     // release. Moving the cursor past the drag threshold, leaving the
@@ -659,7 +659,7 @@ public partial class TodoWidgetWindow : WidgetWindowBase
             return;
         }
         _peekDwellAnchor = pos;
-        _peekDwellTimer ??= new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
+        _peekDwellTimer ??= new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(300) };
         _peekDwellTimer.Tick -= PeekDwellTimer_Tick;
         _peekDwellTimer.Tick += PeekDwellTimer_Tick;
         _peekDwellTimer.Stop();

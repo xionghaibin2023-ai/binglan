@@ -2915,7 +2915,7 @@ internal static class Program
                 firstTodayCheck.IsChecked = false;
                 Pump();
 
-                // 列表视图 500ms 停顿上浮与上下拖拽移动：首条可见今日待办上浮后向下拖动越过邻行，松开后顺序交换且主题底色绑定保持完整。
+                // 列表视图 300ms 停顿上浮与上下拖拽移动：首条可见今日待办上浮后向下拖动越过邻行，松开后顺序交换且主题底色绑定保持完整。
                 var currentTodayItems = todoListControl.Items.OfType<TodoItemState>()
                     .Where(x => TodoService.BelongsToTodayList(x, DateTime.Today))
                     .ToList();
@@ -2938,7 +2938,7 @@ internal static class Program
                 Assert(
                     Panel.GetZIndex(firstContainer) == 100
                         && firstContainer.RenderTransform is TranslateTransform { Y: < 0 },
-                    "列表视图停顿满 500ms 后待办行应进入上浮态（ZIndex=100 且向上微抬）");
+                    "列表视图停顿满 300ms 后待办行应进入上浮态（ZIndex=100 且向上微抬）");
                 typeof(TodoWidgetWindow)
                     .GetMethod("DoPeekDragMove", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)!
                     .Invoke(todo, [secondCenterInList]);

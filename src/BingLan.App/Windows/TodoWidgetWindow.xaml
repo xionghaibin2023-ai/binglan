@@ -15,7 +15,7 @@
                         FontFamily="{StaticResource UiFont}"
                         Foreground="{DynamicResource PrimaryTextBrush}">
     <local:WidgetWindowBase.Resources>
-        <!-- Full entry row for the day peek popup: dwell 500 ms to lift and drag to
+        <!-- Full entry row for the day peek popup: dwell 300 ms to lift and drag to
              reorder, double-click the text to edit in place, right-click for move-to-day. -->
         <DataTemplate x:Key="DayPeekItemTemplate">
             <Border x:Name="PeekRowBorder"
